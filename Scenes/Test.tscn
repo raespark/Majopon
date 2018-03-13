@@ -1,0 +1,358 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://WitchSprite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://WitchSprite2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://WitchSprite3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WitchSprite4.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+position = Vector2( 185.821, 476.028 )
+
+[node name="WitchSprite" parent="." index="0" instance=ExtResource( 1 )]
+
+editor/display_folded = true
+position = Vector2( -32.9524, -77.3966 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="Base" parent="WitchSprite" index="0"]
+
+position = Vector2( 0.329326, -79.4744 )
+
+[node name="Hat" parent="WitchSprite/Base" index="0"]
+
+position = Vector2( -459.935, -1456.61 )
+rotation = -0.160505
+
+[node name="brim" parent="WitchSprite/Base" index="1"]
+
+position = Vector2( -278.069, -1366.49 )
+rotation = -0.562771
+
+[node name="BackLeg" parent="WitchSprite/Base" index="2"]
+
+position = Vector2( -384.988, -183.901 )
+
+[node name="LegTop2" parent="WitchSprite/Base/BackLeg" index="0"]
+
+position = Vector2( 50.5638, 67.1955 )
+rotation = -0.0901708
+
+[node name="foot2" parent="WitchSprite/Base/BackLeg" index="1"]
+
+position = Vector2( 72.1582, 131.385 )
+rotation = -0.482266
+
+[node name="LegBottom2" parent="WitchSprite/Base/BackLeg" index="2"]
+
+position = Vector2( 67.9045, 96.0711 )
+rotation = -0.569786
+
+[node name="head" parent="WitchSprite/Base" index="5"]
+
+position = Vector2( -100.192, -1106.79 )
+
+[node name="Hair4Back" parent="WitchSprite/Base/head" index="0"]
+
+position = Vector2( -685.501, 301.927 )
+rotation = -0.0437473
+
+[node name="hair1Back" parent="WitchSprite/Base/head" index="1"]
+
+position = Vector2( -704.638, 237.105 )
+rotation = -0.234405
+
+[node name="HairFront" parent="WitchSprite/Base/head" index="2"]
+
+position = Vector2( 3.97278, -162.858 )
+
+[node name="blush" parent="WitchSprite/Base/head" index="5"]
+
+position = Vector2( 186.729, 113.932 )
+
+[node name="Hair3Back" parent="WitchSprite/Base/head" index="8"]
+
+position = Vector2( -490.125, 516.263 )
+rotation = -0.11897
+
+[node name="coatRight" parent="WitchSprite/Base" index="6"]
+
+position = Vector2( 400.233, -160.285 )
+rotation = -0.00122841
+
+[node name="foot" parent="WitchSprite/Base/FrontLeg" index="0"]
+
+position = Vector2( 957.176, 1463.91 )
+rotation = -0.356887
+
+[node name="LegTop" parent="WitchSprite/Base/FrontLeg" index="1"]
+
+position = Vector2( 858.49, 789.735 )
+rotation = -0.11605
+
+[node name="LegBottom" parent="WitchSprite/Base/FrontLeg" index="2"]
+
+position = Vector2( 966.931, 1073.96 )
+rotation = -0.397035
+
+[node name="coatLeft" parent="WitchSprite/Base" index="10"]
+
+position = Vector2( -468.193, -135.645 )
+rotation = -0.114312
+
+[node name="CoatShape" parent="WitchSprite/Base" index="11"]
+
+position = Vector2( 143.849, -438.01 )
+
+[node name="star" parent="WitchSprite/Base/CoatShape" index="0"]
+
+position = Vector2( 41.0601, 4.46581 )
+
+[node name="WitchSprite1" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 616.599, -187.083 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Base" parent="WitchSprite1" index="0"]
+
+position = Vector2( 0.217948, -86.1569 )
+
+[node name="Hat" parent="WitchSprite1/Base" index="0"]
+
+position = Vector2( -461.341, -1454.87 )
+rotation = -0.163497
+
+[node name="brim" parent="WitchSprite1/Base" index="1"]
+
+rotation = -0.563419
+
+[node name="LegTop2" parent="WitchSprite1/Base/BackLeg" index="0"]
+
+position = Vector2( 50.8008, 68.8548 )
+rotation = -0.0226142
+
+[node name="foot2" parent="WitchSprite1/Base/BackLeg" index="1"]
+
+position = Vector2( 70.7359, 133.045 )
+rotation = -0.407399
+
+[node name="LegBottom2" parent="WitchSprite1/Base/BackLeg" index="2"]
+
+position = Vector2( 67.9045, 97.4934 )
+rotation = -0.55525
+
+[node name="head" parent="WitchSprite1/Base" index="5"]
+
+position = Vector2( -100.192, -1107.74 )
+
+[node name="hair1Back" parent="WitchSprite1/Base/head" index="0"]
+
+position = Vector2( -707.492, 253.003 )
+rotation = -0.290074
+
+[node name="Hair3Back" parent="WitchSprite1/Base/head" index="7"]
+
+position = Vector2( -470.625, 541.179 )
+rotation = -0.149721
+
+[node name="coatRight" parent="WitchSprite1/Base" index="6"]
+
+position = Vector2( 399.491, -159.649 )
+rotation = -0.000350381
+
+[node name="foot" parent="WitchSprite1/Base/FrontLeg" index="0"]
+
+position = Vector2( 945.324, 1487.79 )
+rotation = -0.283949
+
+[node name="LegTop" parent="WitchSprite1/Base/FrontLeg" index="1"]
+
+position = Vector2( 860.421, 799.389 )
+rotation = -0.0890477
+
+[node name="LegBottom" parent="WitchSprite1/Base/FrontLeg" index="2"]
+
+position = Vector2( 963.069, 1085.54 )
+rotation = -0.384806
+
+[node name="coatLeft" parent="WitchSprite1/Base" index="10"]
+
+position = Vector2( -467.028, -134.48 )
+rotation = -0.116443
+
+[node name="CoatShape" parent="WitchSprite1/Base" index="11"]
+
+position = Vector2( 124.966, -449.025 )
+
+[node name="star" parent="WitchSprite1/Base/CoatShape" index="0"]
+
+position = Vector2( 40.8263, 4.77759 )
+
+[node name="WitchSprite2" parent="." index="2" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+position = Vector2( 180.997, -174.615 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Base" parent="WitchSprite2" index="0"]
+
+position = Vector2( 0.719646, -56.0559 )
+
+[node name="Hat" parent="WitchSprite2/Base" index="0"]
+
+position = Vector2( -400.708, -1529.63 )
+rotation = -0.0344522
+
+[node name="brim" parent="WitchSprite2/Base" index="1"]
+
+rotation = -0.535445
+
+[node name="LegTop2" parent="WitchSprite2/Base/BackLeg" index="0"]
+
+position = Vector2( 50.5638, 67.1955 )
+
+[node name="foot2" parent="WitchSprite2/Base/BackLeg" index="1"]
+
+position = Vector2( 72.1582, 131.385 )
+
+[node name="LegBottom2" parent="WitchSprite2/Base/BackLeg" index="2"]
+
+position = Vector2( 67.9045, 96.0711 )
+
+[node name="head" parent="WitchSprite2/Base" index="5"]
+
+position = Vector2( -100.192, -1130.76 )
+
+[node name="hair1Back" parent="WitchSprite2/Base/head" index="0"]
+
+position = Vector2( -693.076, 172.712 )
+rotation = -0.00892587
+
+[node name="Hair3Back" parent="WitchSprite2/Base/head" index="7"]
+
+position = Vector2( -569.105, 415.343 )
+rotation = 0.00558172
+
+[node name="coatRight" parent="WitchSprite2/Base" index="6"]
+
+position = Vector2( 431.479, -187.067 )
+rotation = -0.03822
+
+[node name="foot" parent="WitchSprite2/Base/FrontLeg" index="0"]
+
+position = Vector2( 957.176, 1463.91 )
+
+[node name="LegTop" parent="WitchSprite2/Base/FrontLeg" index="1"]
+
+position = Vector2( 858.49, 789.735 )
+
+[node name="LegBottom" parent="WitchSprite2/Base/FrontLeg" index="2"]
+
+position = Vector2( 966.931, 1073.96 )
+
+[node name="coatLeft" parent="WitchSprite2/Base" index="10"]
+
+position = Vector2( -517.294, -184.746 )
+rotation = -0.0245369
+
+[node name="star" parent="WitchSprite2/Base/CoatShape" index="0"]
+
+position = Vector2( 35.2161, 12.2578 )
+
+[node name="WitchSprite3" parent="." index="3" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( 383.75, -79.695 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Base" parent="WitchSprite3" index="0"]
+
+position = Vector2( 0.504228, -68.9806 )
+
+[node name="Hat" parent="WitchSprite3/Base" index="0"]
+
+position = Vector2( -439.256, -1482.1 )
+rotation = -0.116493
+
+[node name="brim" parent="WitchSprite3/Base" index="1"]
+
+rotation = -0.55323
+
+[node name="BackLeg" parent="WitchSprite3/Base" index="2"]
+
+position = Vector2( -384.988, -183.901 )
+
+[node name="LegTop2" parent="WitchSprite3/Base/BackLeg" index="0"]
+
+position = Vector2( 50.5638, 67.1955 )
+
+[node name="foot2" parent="WitchSprite3/Base/BackLeg" index="1"]
+
+position = Vector2( 72.1582, 131.385 )
+
+[node name="LegBottom2" parent="WitchSprite3/Base/BackLeg" index="2"]
+
+position = Vector2( 67.9045, 96.0711 )
+
+[node name="head" parent="WitchSprite3/Base" index="5"]
+
+position = Vector2( -100.192, -1116.26 )
+
+[node name="Hair4Back" parent="WitchSprite3/Base/head" index="0"]
+
+position = Vector2( -691.784, 287.267 )
+rotation = -0.0167756
+
+[node name="hair1Back" parent="WitchSprite3/Base/head" index="1"]
+
+position = Vector2( -699.603, 209.065 )
+rotation = -0.13622
+
+[node name="HairFront" parent="WitchSprite3/Base/head" index="2"]
+
+position = Vector2( 3.97278, -162.858 )
+
+[node name="blush" parent="WitchSprite3/Base/head" index="5"]
+
+position = Vector2( 186.729, 113.932 )
+
+[node name="Hair3Back" parent="WitchSprite3/Base/head" index="8"]
+
+position = Vector2( -524.517, 472.317 )
+rotation = -0.0647338
+
+[node name="coatRight" parent="WitchSprite3/Base" index="6"]
+
+position = Vector2( 411.142, -169.636 )
+rotation = -0.0141441
+
+[node name="foot" parent="WitchSprite3/Base/FrontLeg" index="0"]
+
+position = Vector2( 957.176, 1463.91 )
+
+[node name="LegTop" parent="WitchSprite3/Base/FrontLeg" index="1"]
+
+position = Vector2( 858.49, 789.735 )
+
+[node name="LegBottom" parent="WitchSprite3/Base/FrontLeg" index="2"]
+
+position = Vector2( 966.931, 1073.96 )
+
+[node name="coatLeft" parent="WitchSprite3/Base" index="10"]
+
+position = Vector2( -485.337, -152.789 )
+rotation = -0.0829669
+
+[node name="star" parent="WitchSprite3/Base/CoatShape" index="0"]
+
+position = Vector2( 38.7507, 7.54493 )
+
+
+[editable path="WitchSprite"]
+[editable path="WitchSprite1"]
+[editable path="WitchSprite2"]
+[editable path="WitchSprite3"]

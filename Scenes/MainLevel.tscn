@@ -1,0 +1,494 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/magicBall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/scoreBannersPole.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/scoreBannersFlag.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/Mak Dah.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scripts/ScoreLabel.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/panel.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40, 70 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40, 70 )
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 350
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 100
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 10 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 100
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 10 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 9.73529 )
+
+[node name="Base" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="backgroundUI" type="Sprite" parent="." index="0"]
+
+position = Vector2( 750, 350 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="Node2D" parent="." index="1"]
+
+position = Vector2( -10, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" index="0" groups=[
+"Wall",
+]]
+
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="rightTopWall" type="CollisionPolygon2D" parent="Walls/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -70, 335, -110, 335, -110, -30, 825, -30, 825, 15, -70, 15 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls" index="1" groups=[
+"Wall",
+]]
+
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="leftBottomWall" type="CollisionPolygon2D" parent="Walls/StaticBody2D2" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -110, 335, -110, 390, 860, 390, 860, -30, 825, -30, 825, 335 )
+
+[node name="Player1" type="Node2D" parent="." index="2" groups=[
+"Player",
+]]
+
+editor/display_folded = true
+position = Vector2( 200, 390 )
+scale = Vector2( 1.3, 1.3 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+magic_object = ExtResource( 3 )
+magic_color = Color( 0.972656, 0.903257, 0.33815, 1 )
+player = null
+
+[node name="Sprite" parent="Player1" index="0" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( 0, 30 )
+scale = Vector2( 0.4, 0.4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Player1" index="1"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/KinematicBody2D" index="0"]
+
+position = Vector2( -10, -10 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
+
+[node name="MagicSpawnPoint" type="Position2D" parent="Player1" index="2"]
+
+position = Vector2( 87.0558, -51.2202 )
+
+[node name="Timer" type="Timer" parent="Player1" index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Player2" type="Node2D" parent="." index="3" groups=[
+"Player",
+]]
+
+editor/display_folded = true
+position = Vector2( 1300, 390 )
+scale = Vector2( -1.3, 1.3 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+magic_object = ExtResource( 3 )
+magic_color = Color( 0.964844, 0.527649, 0.958013, 1 )
+player = 1
+
+[node name="Sprite" parent="Player2" index="0" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( 0, 30 )
+scale = Vector2( 0.4, 0.4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hair4Back" parent="Player2/Sprite/Base/head" index="0"]
+
+visible = true
+
+[node name="hair1Back" parent="Player2/Sprite/Base/head" index="1"]
+
+visible = false
+
+[node name="Hair1Front" parent="Player2/Sprite/Base/head/HairFront" index="0"]
+
+visible = false
+
+[node name="hair4Front" parent="Player2/Sprite/Base/head/HairFront" index="3"]
+
+visible = true
+
+[node name="star" parent="Player2/Sprite/Base/CoatShape" index="0"]
+
+visible = false
+
+[node name="heart" parent="Player2/Sprite/Base/CoatShape" index="1"]
+
+visible = true
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Player2" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/KinematicBody2D" index="0"]
+
+position = Vector2( -10, -10 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MagicSpawnPoint" type="Position2D" parent="Player2" index="2"]
+
+position = Vector2( 87.0558, -51.2202 )
+
+[node name="Timer" type="Timer" parent="Player2" index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Magic" type="Node2D" parent="." index="4"]
+
+[node name="UI" type="Node2D" parent="." index="5"]
+
+[node name="ScoreBanners" type="Node2D" parent="UI" index="0"]
+
+[node name="scoreBannersPole" type="Sprite" parent="UI/ScoreBanners" index="0"]
+
+position = Vector2( 740, 120 )
+scale = Vector2( 0.435938, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="scoreBannersFlag" type="Sprite" parent="UI/ScoreBanners" index="1"]
+
+position = Vector2( 360, 90 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player1Score" type="Label" parent="UI/ScoreBanners/scoreBannersFlag" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -125.0
+margin_top = -200.0
+margin_right = 125.0
+margin_bottom = 241.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 8 )
+_sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
+player = 0
+
+[node name="scoreBannersFlag2" type="Sprite" parent="UI/ScoreBanners" index="2"]
+
+position = Vector2( 1063.06, 94.1615 )
+rotation = 3.14159
+scale = Vector2( 0.4, -0.4 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player2Score" type="Label" parent="UI/ScoreBanners/scoreBannersFlag2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 119.0
+margin_top = -202.0
+margin_right = 372.0
+margin_bottom = 239.0
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
+player = 1
+
+[node name="Player1Panel" type="Node2D" parent="UI" index="1"]
+
+editor/display_folded = true
+position = Vector2( 220, 650 )
+scale = Vector2( 0.75, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="panel" type="Sprite" parent="UI/Player1Panel" index="0"]
+
+modulate = Color( 1, 0.773438, 0, 1 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Player1_Shadow" type="Label" parent="UI/Player1Panel" index="1"]
+
+modulate = Color( 0.277344, 0.277344, 0.277344, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -194.0
+margin_top = -53.0
+margin_right = 106.0
+margin_bottom = 68.0
+rect_rotation = 2.6029
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+text = "Player 1"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility", "custom_fonts", "custom_styles" ]
+
+[node name="Player1" type="Label" parent="UI/Player1Panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -199.0
+margin_top = -53.0
+margin_right = 101.0
+margin_bottom = 68.0
+rect_rotation = 2.6029
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+text = "Player 1"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
+
+[node name="PLayer2Panel" type="Node2D" parent="UI" index="2"]
+
+editor/display_folded = true
+position = Vector2( 1280, 650 )
+rotation = -3.14159
+scale = Vector2( 0.75, -0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="panel2" type="Sprite" parent="UI/PLayer2Panel" index="0"]
+
+modulate = Color( 0.959763, 0.317886, 0.980469, 1 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Player2_Shadow" type="Label" parent="UI/PLayer2Panel" index="1"]
+
+modulate = Color( 0.277333, 0.277333, 0.277333, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 114.0
+margin_top = -40.0
+margin_right = 396.0
+margin_bottom = 81.0
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+text = "Player 2"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="Player2" type="Label" parent="UI/PLayer2Panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = -40.0
+margin_right = 402.0
+margin_bottom = 81.0
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+text = "Player 2"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="ScoreAreaPlayer2" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( -70, 340.5 )
+scale = Vector2( 2.6875, 10.6406 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 11 )
+_sections_unfolded = [ "Collision" ]
+player = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreAreaPlayer2" index="0"]
+
+position = Vector2( 0, 0.938416 )
+scale = Vector2( 3.31306, 3.19062 )
+shape = SubResource( 7 )
+
+[node name="ScoreAreaPlayer1" type="Area2D" parent="." index="7"]
+
+position = Vector2( 1570, 340 )
+scale = Vector2( 2.6875, 10.6406 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 11 )
+_sections_unfolded = [ "Collision" ]
+player = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreAreaPlayer1" index="0"]
+
+position = Vector2( 0, 0.938416 )
+scale = Vector2( 3.31306, 3.19062 )
+shape = SubResource( 7 )
+
+[connection signal="score_up" from="ScoreAreaPlayer2" to="UI/ScoreBanners/scoreBannersFlag/Player1Score" method="_on_ScoreArea_score_up"]
+
+[connection signal="score_up" from="ScoreAreaPlayer2" to="UI/ScoreBanners/scoreBannersFlag2/Player2Score" method="score_change"]
+
+[connection signal="score_up" from="ScoreAreaPlayer1" to="UI/ScoreBanners/scoreBannersFlag/Player1Score" method="score_change"]
+
+[connection signal="score_up" from="ScoreAreaPlayer1" to="UI/ScoreBanners/scoreBannersFlag2/Player2Score" method="score_change"]
+
+
+[editable path="Player2/Sprite"]
