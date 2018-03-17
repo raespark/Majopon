@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -6,11 +6,15 @@
 [ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/scoreBannersPole.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/scoreBannersFlag.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/Mak Dah.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/waltograph42.otf" type="DynamicFontData" id=7]
 [ext_resource path="res://Scripts/ScoreLabel.gd" type="Script" id=8]
 [ext_resource path="res://Sprites/panel.png" type="Texture" id=9]
 [ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=10]
-[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Win.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/banner.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,7 +29,7 @@ extents = Vector2( 40, 70 )
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 350
+size = 175
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 7 )
@@ -47,10 +51,10 @@ use_filter = true
 font_data = ExtResource( 10 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 9.73529 )
+extents = Vector2( 7.86177, 9.73529 )
 
 [node name="Base" type="Node2D" index="0"]
 
@@ -68,6 +72,7 @@ __meta__ = {
 
 [node name="Walls" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( -10, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls" index="0" groups=[
@@ -125,6 +130,7 @@ player = null
 
 [node name="Sprite" parent="Player1" index="0" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 position = Vector2( 0, 30 )
 scale = Vector2( 0.4, 0.4 )
 _sections_unfolded = [ "Transform" ]
@@ -252,9 +258,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -125.0
-margin_top = -200.0
+margin_top = -176.0
 margin_right = 125.0
-margin_bottom = 241.0
+margin_bottom = 221.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -287,9 +293,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 119.0
-margin_top = -202.0
+margin_top = -160.0
 margin_right = 372.0
-margin_bottom = 239.0
+margin_bottom = 211.0
 rect_scale = Vector2( -1, 1 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -328,10 +334,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -194.0
-margin_top = -53.0
-margin_right = 106.0
-margin_bottom = 68.0
+margin_left = -167.0
+margin_top = -195.0
+margin_right = 653.0
+margin_bottom = 225.0
 rect_rotation = 2.6029
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -353,10 +359,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -199.0
-margin_top = -53.0
-margin_right = 101.0
-margin_bottom = 68.0
+margin_left = -172.0
+margin_top = -192.0
+margin_right = 648.0
+margin_bottom = 228.0
 rect_rotation = 2.6029
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -437,9 +443,36 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="Win" type="Node2D" parent="UI" index="3"]
+
+script = ExtResource( 11 )
+
+[node name="banner" type="Sprite" parent="UI/Win" index="0"]
+
+visible = false
+position = Vector2( 740, 370 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="player1" type="Sprite" parent="UI/Win" index="1"]
+
+visible = false
+position = Vector2( 750, 380 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="player2" type="Sprite" parent="UI/Win" index="2"]
+
+visible = false
+position = Vector2( 750, 380 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility" ]
+
 [node name="ScoreAreaPlayer2" type="Area2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( -70, 340.5 )
 scale = Vector2( 2.6875, 10.6406 )
 input_pickable = true
@@ -449,7 +482,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 11 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Collision" ]
 player = 1
 
@@ -457,7 +490,7 @@ player = 1
 
 position = Vector2( 0, 0.938416 )
 scale = Vector2( 3.31306, 3.19062 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="ScoreAreaPlayer1" type="Area2D" parent="." index="7"]
 
@@ -470,21 +503,29 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 11 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Collision" ]
 player = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreAreaPlayer1" index="0"]
 
-position = Vector2( 0, 0.938416 )
-scale = Vector2( 3.31306, 3.19062 )
-shape = SubResource( 6 )
+position = Vector2( -0.611796, 0.938416 )
+scale = Vector2( 3.36939, 3.19062 )
+shape = SubResource( 7 )
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer1" method="on_win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="UI/Win" method="win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer2" method="on_win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer1" method="on_win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="UI/Win" method="win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer2" method="on_win"]
 
 [connection signal="score_up" from="ScoreAreaPlayer2" to="UI/ScoreBanners/scoreBannersFlag2/Player2Score" method="score_change"]
-
-[connection signal="score_up" from="ScoreAreaPlayer2" to="UI/ScoreBanners/scoreBannersFlag/Player1Score" method="_on_ScoreArea_score_up"]
-
-[connection signal="score_up" from="ScoreAreaPlayer1" to="UI/ScoreBanners/scoreBannersFlag2/Player2Score" method="score_change"]
 
 [connection signal="score_up" from="ScoreAreaPlayer1" to="UI/ScoreBanners/scoreBannersFlag/Player1Score" method="score_change"]
 

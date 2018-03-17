@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/MagicBall.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/magicBallSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/MagicDeath.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/magicBallSprite.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 4.0
 
-[node name="RigidBody2D" type="RigidBody2D" index="0"]
+[node name="RigidBody2D" type="RigidBody2D"]
 
 position = Vector2( 238.013, 327.482 )
 input_pickable = false
@@ -31,8 +32,9 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Linear", "Material", "Transform", "Visibility" ]
+death_animation = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Sprite" parent="." index="0" instance=ExtResource( 3 )]
 
 scale = Vector2( 0.4, 0.4 )
 

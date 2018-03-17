@@ -10,12 +10,10 @@ var timer #cooldown timer
 var up_input 
 var down_input
 var attack_input
-var speed
-var angle
+const initialMagicSpeed = 500
+const angle = 300
 
 func _ready():
-	speed = 500
-	angle = 300
 	up_input = "ui_up2" if player else "ui_up"
 	down_input = "ui_down2" if player else "ui_down"
 	attack_input = "ui_left2" if player else "ui_right"
@@ -40,7 +38,7 @@ func animation_finished(animation, node):
 		magic.set_modulate(magic_color)
 		#set a random angle for the magic to shoot out at (up or down)
 		var y_angle = rand_range(-angle, angle)
-		var x_direction = -speed if player else  speed
+		var x_direction = -initialMagicSpeed if player else  initialMagicSpeed
 
 		#shoot the magic
 		magic.set_linear_velocity(Vector2(x_direction, y_angle))
