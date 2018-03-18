@@ -7,6 +7,7 @@ func _ready():
 	timer.connect("timeout", self, "restart")
 
 func restart():
+	globalVars.playback_point = get_parent().get_parent().get_node("Music").get_playback_position() + 0.1
 	get_tree().reload_current_scene()
 
 func win(player):
