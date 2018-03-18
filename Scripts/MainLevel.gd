@@ -1,7 +1,5 @@
 extends Node2D
 
-const main_menu = preload("res://Scenes/MainMenu.tscn")
-
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to(main_menu)
+		get_tree().change_scene("res://Scenes/MainMenu.tscn")
