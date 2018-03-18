@@ -1,13 +1,14 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/CharacterSelect.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/CharacterSelect.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/characterSelect.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/CharSelectArrows.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/arrow.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/ready!.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scenes/BackButton.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/BackButton.gd" type="Script" id=8]
+
 
 [sub_resource type="DynamicFont" id=1]
 

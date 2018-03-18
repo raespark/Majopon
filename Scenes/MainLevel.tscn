@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Scenes/MainLevel.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/MainLevel.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/magicBall.tscn" type="PackedScene" id=4]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=16]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
