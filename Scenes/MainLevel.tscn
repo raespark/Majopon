@@ -1,23 +1,24 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/MainLevel.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/magicBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/scoreBannersPole.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/scoreBannersFlag.png" type="Texture" id=7]
-[ext_resource path="res://Fonts/waltograph42.otf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scripts/ScoreLabel.gd" type="Script" id=9]
-[ext_resource path="res://Sprites/panel.png" type="Texture" id=10]
-[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=11]
-[ext_resource path="res://Scripts/Win.gd" type="Script" id=12]
-[ext_resource path="res://Sounds/princessSound.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sprites/banner.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=17]
-[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/spell.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/scoreBannersPole.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/scoreBannersFlag.png" type="Texture" id=8]
+[ext_resource path="res://Fonts/waltograph42.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scripts/ScoreLabel.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/panel.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=12]
+[ext_resource path="res://Scripts/Win.gd" type="Script" id=13]
+[ext_resource path="res://Sounds/princessSound.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sprites/banner.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=18]
+[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,7 +36,7 @@ extents = Vector2( 40, 70 )
 size = 175
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 8 )
+font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -43,7 +44,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 100
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 11 )
+font_data = ExtResource( 12 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -51,7 +52,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 100
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 11 )
+font_data = ExtResource( 12 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -76,6 +77,7 @@ __meta__ = {
 
 [node name="Walls" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( -10, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls" index="0" groups=[
@@ -120,7 +122,6 @@ polygon = PoolVector2Array( -110, 335, -110, 390, 860, 390, 860, -30, 825, -30, 
 "Player",
 ]]
 
-editor/display_folded = true
 position = Vector2( 200, 390 )
 scale = Vector2( 1.3, 1.3 )
 script = ExtResource( 3 )
@@ -134,6 +135,7 @@ player = 0
 
 [node name="Sprite" parent="Player1" index="0" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 position = Vector2( 0, 30 )
 scale = Vector2( 0.4, 0.4 )
 _sections_unfolded = [ "Transform" ]
@@ -164,6 +166,17 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="Spell" type="AudioStreamPlayer2D" parent="Player1" index="4"]
+
+position = Vector2( 930.769, -723.077 )
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [node name="Player2" type="Node2D" parent="." index="3" groups=[
 "Player",
 ]]
@@ -187,6 +200,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Player2" index="1"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -202,7 +216,20 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 87.0558, -51.2202 )
 
-[node name="Timer" type="Timer" parent="Player2" index="3"]
+[node name="Spell" type="AudioStreamPlayer2D" parent="Player2" index="3"]
+
+position = Vector2( -720.639, -497.709 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Timer" type="Timer" parent="Player2" index="4"]
 
 process_mode = 1
 wait_time = 1.0
@@ -213,20 +240,22 @@ autostart = false
 
 [node name="UI" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
+
 [node name="ScoreBanners" type="Node2D" parent="UI" index="0"]
 
 [node name="scoreBannersPole" type="Sprite" parent="UI/ScoreBanners" index="0"]
 
 position = Vector2( 740, 120 )
 scale = Vector2( 0.435938, 0.4 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="scoreBannersFlag" type="Sprite" parent="UI/ScoreBanners" index="1"]
 
 editor/display_folded = true
 position = Vector2( 360, 90 )
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player1Score" type="Label" parent="UI/ScoreBanners/scoreBannersFlag" index="0"]
@@ -252,7 +281,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
 player = 0
 
@@ -262,7 +291,7 @@ editor/display_folded = true
 position = Vector2( 1063.06, 94.1615 )
 rotation = 3.14159
 scale = Vector2( 0.4, -0.4 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player2Score" type="Label" parent="UI/ScoreBanners/scoreBannersFlag2" index="0"]
@@ -289,7 +318,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
 player = 1
 
@@ -302,7 +331,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="panel" type="Sprite" parent="UI/Player1Panel" index="0"]
 
 modulate = Color( 1, 0.773438, 0, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Player1_Shadow" type="Label" parent="UI/Player1Panel" index="1"]
@@ -367,7 +396,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="panel2" type="Sprite" parent="UI/Player2Panel" index="0"]
 
 modulate = Color( 0.959763, 0.317886, 0.980469, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Player2_Shadow" type="Label" parent="UI/Player2Panel" index="1"]
@@ -423,15 +452,15 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Win" type="Node2D" parent="UI" index="3"]
 
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 
 [node name="Win" type="AudioStreamPlayer2D" parent="UI/Win" index="0"]
 
 position = Vector2( 1300, 390 )
 rotation = -3.14159
 scale = Vector2( 1.3, -1.3 )
-stream = ExtResource( 13 )
-volume_db = 0.0
+stream = ExtResource( 14 )
+volume_db = -5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -443,7 +472,7 @@ area_mask = 1
 visible = false
 position = Vector2( 740, 370 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player1" type="Sprite" parent="UI/Win" index="2"]
@@ -451,7 +480,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 position = Vector2( 750, 380 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player2" type="Sprite" parent="UI/Win" index="3"]
@@ -459,7 +488,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 position = Vector2( 750, 380 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Timer" type="Timer" parent="UI/Win" index="4"]
@@ -471,6 +500,7 @@ autostart = false
 
 [node name="ScoreAreaPlayer2" type="Area2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( -70, 340.5 )
 scale = Vector2( 2.6875, 10.6406 )
 input_pickable = true
@@ -480,7 +510,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Collision" ]
 player = 1
 
@@ -492,6 +522,7 @@ shape = SubResource( 6 )
 
 [node name="ScoreAreaPlayer1" type="Area2D" parent="." index="7"]
 
+editor/display_folded = true
 position = Vector2( 1570, 340 )
 scale = Vector2( 2.6875, 10.6406 )
 input_pickable = true
@@ -501,7 +532,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Collision" ]
 player = 0
 
@@ -513,7 +544,7 @@ shape = SubResource( 6 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." index="8"]
 
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 volume_db = -10.0
 autoplay = false
 max_distance = 2000.0
@@ -538,4 +569,3 @@ area_mask = 1
 [connection signal="score_up" from="ScoreAreaPlayer1" to="UI/ScoreBanners/scoreBannersFlag/Player1Score" method="score_change"]
 
 
-[editable path="Player1/Sprite"]

@@ -48,7 +48,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Bounce" type="AudioStreamPlayer2D" parent="." index="2"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
+volume_db = -8.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0

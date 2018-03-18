@@ -75,6 +75,7 @@ func _physics_process(delta):
 	#if the cooldown is up, and the animation isn't currently playing, attack
 	elif Input.is_action_pressed(attack_input) and timer.is_stopped():
 		if not (animationPlayer.current_animation == "Attack"):
+			$Spell.play()
 			#start the cooldown timer
 			timer.start()
 			#play attack animation

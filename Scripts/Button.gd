@@ -32,6 +32,10 @@ func _gui_input(event):
 			has_selected = true
 			select_sound.play()
 			select_sound.connect("finished", self, "character_select")
+		if button_function == 2:
+			has_selected = true
+			select_sound.play()
+			select_sound.connect("finished", self, "how_to_play")
 		if button_function == 3: #quit
 			has_selected = true
 			select_sound.play()
@@ -40,6 +44,10 @@ func _gui_input(event):
 func character_select():
 	globalVars.playback_point = get_parent().get_node("Music").get_playback_position() + 0.1
 	get_tree().change_scene("res://Scenes/CharacterSelect.tscn")
+
+func how_to_play():
+	globalVars.playback_point = get_parent().get_node("Music").get_playback_position() + 0.1
+	get_tree().change_scene("res://Scenes/HowToPlay.tscn")
 
 func quit():
 	get_tree().quit()	
