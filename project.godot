@@ -10,9 +10,13 @@ config_version=3
 
 [application]
 
-config/name="WitchTennis"
-run/main_scene="res://Scenes/MainLevel.tscn"
+config/name="Majopon"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+globalVars="*res://globalVars.gd"
 
 [display]
 

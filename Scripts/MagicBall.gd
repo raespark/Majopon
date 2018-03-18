@@ -2,11 +2,11 @@ extends RigidBody2D
 
 export (PackedScene) var death_animation
 
-func die():
-	var magic_explosion = death_animation.instance()
-	get_parent().add_child(magic_explosion)
-	magic_explosion.get_node("Particles").set_one_shot(true)
-	magic_explosion.set_position(get_global_position())
+func die(): 
+	var magic_death = death_animation.instance()
+	get_parent().add_child(magic_death)
+	magic_death.set_position(get_global_position())
+	magic_death.get_node("Particles").set_one_shot(true)
 	queue_free()
 
 func _ready():

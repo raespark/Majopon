@@ -1,20 +1,21 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/magicBall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/scoreBannersPole.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/scoreBannersFlag.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/waltograph42.otf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scripts/ScoreLabel.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/panel.png" type="Texture" id=9]
-[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=10]
-[ext_resource path="res://Scenes/Win.gd" type="Script" id=11]
-[ext_resource path="res://Sprites/banner.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=14]
-[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/MainLevel.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/magicBall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/scoreBannersPole.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/scoreBannersFlag.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/waltograph42.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scripts/ScoreLabel.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/panel.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://Scripts/Win.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/banner.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -32,7 +33,7 @@ extents = Vector2( 40, 70 )
 size = 175
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -40,7 +41,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 100
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 10 )
+font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -48,23 +49,24 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 100
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 10 )
+font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7.86177, 9.73529 )
 
 [node name="Base" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="backgroundUI" type="Sprite" parent="." index="0"]
 
 position = Vector2( 750, 350 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -117,20 +119,20 @@ polygon = PoolVector2Array( -110, 335, -110, 390, 860, 390, 860, -30, 825, -30, 
 "Player",
 ]]
 
+editor/display_folded = true
 position = Vector2( 200, 390 )
 scale = Vector2( 1.3, 1.3 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
-magic_object = ExtResource( 3 )
+magic_object = ExtResource( 4 )
 magic_color = Color( 0.972656, 0.903257, 0.33815, 1 )
-player = null
+player = 0
 
-[node name="Sprite" parent="Player1" index="0" instance=ExtResource( 4 )]
+[node name="Sprite" parent="Player1" index="0" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 position = Vector2( 0, 30 )
 scale = Vector2( 0.4, 0.4 )
 _sections_unfolded = [ "Transform" ]
@@ -168,45 +170,20 @@ autostart = false
 editor/display_folded = true
 position = Vector2( 1300, 390 )
 scale = Vector2( -1.3, 1.3 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
-magic_object = ExtResource( 3 )
+magic_object = ExtResource( 4 )
 magic_color = Color( 0.964844, 0.527649, 0.958013, 1 )
 player = 1
 
-[node name="Sprite" parent="Player2" index="0" instance=ExtResource( 4 )]
+[node name="Sprite" parent="Player2" index="0" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 position = Vector2( 0, 30 )
 scale = Vector2( 0.4, 0.4 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Hair4Back" parent="Player2/Sprite/Base/head" index="0"]
-
-visible = true
-
-[node name="hair1Back" parent="Player2/Sprite/Base/head" index="1"]
-
-visible = false
-
-[node name="Hair1Front" parent="Player2/Sprite/Base/head/HairFront" index="0"]
-
-visible = false
-
-[node name="hair4Front" parent="Player2/Sprite/Base/head/HairFront" index="3"]
-
-visible = true
-
-[node name="star" parent="Player2/Sprite/Base/CoatShape" index="0"]
-
-visible = false
-
-[node name="heart" parent="Player2/Sprite/Base/CoatShape" index="1"]
-
-visible = true
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Player2" index="1"]
 
@@ -242,13 +219,14 @@ autostart = false
 
 position = Vector2( 740, 120 )
 scale = Vector2( 0.435938, 0.4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="scoreBannersFlag" type="Sprite" parent="UI/ScoreBanners" index="1"]
 
+editor/display_folded = true
 position = Vector2( 360, 90 )
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player1Score" type="Label" parent="UI/ScoreBanners/scoreBannersFlag" index="0"]
@@ -274,16 +252,17 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
 player = 0
 
 [node name="scoreBannersFlag2" type="Sprite" parent="UI/ScoreBanners" index="2"]
 
+editor/display_folded = true
 position = Vector2( 1063.06, 94.1615 )
 rotation = 3.14159
 scale = Vector2( 0.4, -0.4 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player2Score" type="Label" parent="UI/ScoreBanners/scoreBannersFlag2" index="0"]
@@ -310,13 +289,12 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
 player = 1
 
 [node name="Player1Panel" type="Node2D" parent="UI" index="1"]
 
-editor/display_folded = true
 position = Vector2( 220, 650 )
 scale = Vector2( 0.75, 0.5 )
 _sections_unfolded = [ "Transform" ]
@@ -324,7 +302,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="panel" type="Sprite" parent="UI/Player1Panel" index="0"]
 
 modulate = Color( 1, 0.773438, 0, 1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Player1_Shadow" type="Label" parent="UI/Player1Panel" index="1"]
@@ -378,7 +356,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
 
-[node name="PLayer2Panel" type="Node2D" parent="UI" index="2"]
+[node name="Player2Panel" type="Node2D" parent="UI" index="2"]
 
 editor/display_folded = true
 position = Vector2( 1280, 650 )
@@ -386,13 +364,13 @@ rotation = -3.14159
 scale = Vector2( 0.75, -0.5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="panel2" type="Sprite" parent="UI/PLayer2Panel" index="0"]
+[node name="panel2" type="Sprite" parent="UI/Player2Panel" index="0"]
 
 modulate = Color( 0.959763, 0.317886, 0.980469, 1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Player2_Shadow" type="Label" parent="UI/PLayer2Panel" index="1"]
+[node name="Player2_Shadow" type="Label" parent="UI/Player2Panel" index="1"]
 
 modulate = Color( 0.277333, 0.277333, 0.277333, 1 )
 anchor_left = 0.0
@@ -418,7 +396,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
-[node name="Player2" type="Label" parent="UI/PLayer2Panel" index="2"]
+[node name="Player2" type="Label" parent="UI/Player2Panel" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -445,14 +423,14 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Win" type="Node2D" parent="UI" index="3"]
 
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="banner" type="Sprite" parent="UI/Win" index="0"]
 
 visible = false
 position = Vector2( 740, 370 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player1" type="Sprite" parent="UI/Win" index="1"]
@@ -460,7 +438,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 position = Vector2( 750, 380 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player2" type="Sprite" parent="UI/Win" index="2"]
@@ -468,8 +446,15 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 position = Vector2( 750, 380 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="Timer" type="Timer" parent="UI/Win" index="3"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
 
 [node name="ScoreAreaPlayer2" type="Area2D" parent="." index="6"]
 
@@ -482,7 +467,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Collision" ]
 player = 1
 
@@ -490,7 +475,7 @@ player = 1
 
 position = Vector2( 0, 0.938416 )
 scale = Vector2( 3.31306, 3.19062 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="ScoreAreaPlayer1" type="Area2D" parent="." index="7"]
 
@@ -503,7 +488,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Collision" ]
 player = 0
 
@@ -511,17 +496,17 @@ player = 0
 
 position = Vector2( -0.611796, 0.938416 )
 scale = Vector2( 3.36939, 3.19062 )
-shape = SubResource( 7 )
-
-[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer1" method="on_win"]
+shape = SubResource( 6 )
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="UI/Win" method="win"]
 
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer1" method="on_win"]
+
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer2" method="on_win"]
 
-[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer1" method="on_win"]
-
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="UI/Win" method="win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer1" method="on_win"]
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer2" method="on_win"]
 
@@ -531,4 +516,3 @@ shape = SubResource( 7 )
 
 
 [editable path="Player1/Sprite"]
-[editable path="Player2/Sprite"]

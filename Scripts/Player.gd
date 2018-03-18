@@ -10,10 +10,13 @@ var timer #cooldown timer
 var up_input 
 var down_input
 var attack_input
-const initialMagicSpeed = 500
+const initialMagicSpeed = 400
 const angle = 300
 
 func _ready():
+	var character = globalVars.player2 if player else globalVars.player1
+	get_node("Sprite").pick_character(character)
+	
 	up_input = "ui_up2" if player else "ui_up"
 	down_input = "ui_down2" if player else "ui_down"
 	attack_input = "ui_left2" if player else "ui_right"
