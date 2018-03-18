@@ -17,7 +17,6 @@
 [ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=16]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -501,15 +500,15 @@ shape = SubResource( 6 )
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="UI/Win" method="win"]
 
-[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer1" method="on_win"]
-
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer2" method="on_win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer1" method="on_win"]
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="UI/Win" method="win"]
 
-[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer1" method="on_win"]
-
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer2" method="on_win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer1" method="on_win"]
 
 [connection signal="score_up" from="ScoreAreaPlayer2" to="UI/ScoreBanners/scoreBannersFlag2/Player2Score" method="score_change"]
 

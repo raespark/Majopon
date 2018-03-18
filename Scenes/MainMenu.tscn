@@ -10038,7 +10038,7 @@ tracks/29/keys = {
 "values": [ 0.5284 ]
 }
 
-[node name="MainMenu" type="Container" index="0"]
+[node name="MainMenu" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
