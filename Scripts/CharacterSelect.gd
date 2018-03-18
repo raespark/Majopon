@@ -17,7 +17,6 @@ func change_scenes():
 	get_tree().change_scene("res://Scenes/MainLevel.tscn")
 
 func player_ready(player, character):
-	print(character)
 	if player == 0:
 		player1Ready = true
 		player1Character = character
