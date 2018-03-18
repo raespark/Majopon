@@ -14,5 +14,6 @@ func win(player):
 	var winMessage = get_node("player2") if player else get_node("player1")
 	banner.show()
 	winMessage.show()
+	$Win.play()
 	timer.start()
 

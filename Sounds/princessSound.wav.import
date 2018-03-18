@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/princessSound.wav-d59cb7f38e0b0926975e5453a2e3183c.sample"
+
+[deps]
+
+source_file="res://Sounds/princessSound.wav"
+source_md5="662404aa64524130bf49b9daf408f9ed"
+
+dest_files=[ "res://.import/princessSound.wav-d59cb7f38e0b0926975e5453a2e3183c.sample" ]
+dest_md5="054c16036ca009f835bc73f9829b2ef3"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

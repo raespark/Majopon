@@ -39,12 +39,12 @@ func _physics_process(delta):
 			charIndex = 0
 		$Nav.play()
 		emit_signal("changeCharacter", characters[charIndex])
-	elif Input.is_action_just_pressed(up_input):
+	elif Input.is_action_just_pressed(up_input) and not ready:
 		ready = true
 		ready_sound.play()
 		emit_signal("ready", player, characters[charIndex])
 		get_node("ReadyPlayer").show()
-	elif Input.is_action_just_pressed(down_input):
+	elif Input.is_action_just_pressed(down_input) and ready:
 		ready = false
 		emit_signal("cancel_ready", player)
 		get_node("ReadyPlayer").hide()

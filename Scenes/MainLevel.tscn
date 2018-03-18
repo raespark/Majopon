@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/MainLevel.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=2]
@@ -12,11 +12,12 @@
 [ext_resource path="res://Sprites/panel.png" type="Texture" id=10]
 [ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://Scripts/Win.gd" type="Script" id=12]
-[ext_resource path="res://Sprites/banner.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=15]
-[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=16]
-[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/princessSound.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sprites/banner.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=17]
+[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -58,7 +59,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 7.86177, 9.73529 )
 
-[node name="Base" type="Node2D"]
+[node name="Base" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -167,7 +168,6 @@ autostart = false
 "Player",
 ]]
 
-editor/display_folded = true
 position = Vector2( 1300, 390 )
 scale = Vector2( -1.3, 1.3 )
 script = ExtResource( 3 )
@@ -425,34 +425,47 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 script = ExtResource( 12 )
 
-[node name="banner" type="Sprite" parent="UI/Win" index="0"]
+[node name="Win" type="AudioStreamPlayer2D" parent="UI/Win" index="0"]
+
+position = Vector2( 1300, 390 )
+rotation = -3.14159
+scale = Vector2( 1.3, -1.3 )
+stream = ExtResource( 13 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="banner" type="Sprite" parent="UI/Win" index="1"]
 
 visible = false
 position = Vector2( 740, 370 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="player1" type="Sprite" parent="UI/Win" index="1"]
-
-visible = false
-position = Vector2( 750, 380 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="player2" type="Sprite" parent="UI/Win" index="2"]
+[node name="player1" type="Sprite" parent="UI/Win" index="2"]
 
 visible = false
 position = Vector2( 750, 380 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="player2" type="Sprite" parent="UI/Win" index="3"]
+
+visible = false
+position = Vector2( 750, 380 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Timer" type="Timer" parent="UI/Win" index="3"]
+[node name="Timer" type="Timer" parent="UI/Win" index="4"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 7.0
 one_shot = false
 autostart = false
 
@@ -467,7 +480,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Collision" ]
 player = 1
 
@@ -488,7 +501,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Collision" ]
 player = 0
 
@@ -500,7 +513,7 @@ shape = SubResource( 6 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." index="8"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = -10.0
 autoplay = false
 max_distance = 2000.0
