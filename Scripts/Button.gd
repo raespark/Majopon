@@ -1,6 +1,6 @@
 extends Button
 
-const character_select = preload("res://scenes/CharacterSelect.tscn")
+const character_select = preload("res://Scenes/CharacterSelect.tscn")
 
 export (bool) var defualt_button
 export (int, "One Player", "Two Player", "How To Play", "Quit") var button_function

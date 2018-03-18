@@ -1,6 +1,6 @@
 extends Node2D
 
-const main_menu = preload("res://scenes/MainMenu.tscn")
+const main_menu = preload("res://Scenes/MainMenu.tscn")
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_cancel"):

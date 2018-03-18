@@ -1,6 +1,6 @@
 extends Node2D
 
-const main_level = preload("res://scenes/MainLevel.tscn")
+const main_level = preload("res://Scenes/MainLevel.tscn")
 
 var player1Ready
 var player1Character
