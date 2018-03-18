@@ -1,5 +1,7 @@
 extends Button
 
+const character_select = preload("res://scenes/CharacterSelect.tscn")
+
 export (bool) var defualt_button
 export (int, "One Player", "Two Player", "How To Play", "Quit") var button_function
 
@@ -20,6 +22,6 @@ func unhighlighted():
 func _gui_input(event):
 	if event.is_pressed() and not is_disabled():
 		if button_function == 1: #two player
-			get_tree().change_scene("res://scenes/CharacterSelect.tscn")
+			get_tree().change_scene_to(character_select)
 		if button_function == 3: #quit
 			get_tree().quit()
