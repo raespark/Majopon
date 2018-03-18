@@ -1,7 +1,7 @@
 extends Label
 
 export (int, "Player1", "Player2") var player
-const winLimit = 15
+const winLimit = 10
 signal win
 var score
 

@@ -71,7 +71,7 @@ func _physics_process(delta):
 		#play the animation in the direction of the characters movement with a .075 second transition
 		animationPlayer.play(direction, .075)
 		#move the character
-		velocity = velocity.normalized() * 300 #300 is the speed at which the character moves
+		velocity = velocity.normalized() * 400 #300 is the speed at which the character moves
 	#if the cooldown is up, and the animation isn't currently playing, attack
 	elif Input.is_action_pressed(attack_input) and timer.is_stopped():
 		if not (animationPlayer.current_animation == "Attack"):
