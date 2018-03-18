@@ -13,7 +13,11 @@ var ready = false
 var charIndex
 var characters = ['tulip', 'lily', 'rose', 'poppy']
 
+var ready_sound
+
 func _ready():
+	ready_sound = get_parent().get_parent().get_node("Ready")
+	
 	right_input = "ui_right2" if player else "ui_right"
 	left_input = "ui_left2" if player else "ui_left"
 	up_input = "ui_up2" if player else "ui_up"
@@ -26,15 +30,18 @@ func _physics_process(delta):
 			charIndex -=1
 		else:
 			charIndex = 3
+		$Nav.play()
 		emit_signal("changeCharacter", characters[charIndex])
 	elif Input.is_action_just_pressed(right_input) and not ready:
 		if charIndex < 3:
 			charIndex += 1
 		else: 
 			charIndex = 0
+		$Nav.play()
 		emit_signal("changeCharacter", characters[charIndex])
 	elif Input.is_action_just_pressed(up_input):
 		ready = true
+		ready_sound.play()
 		emit_signal("ready", player, characters[charIndex])
 		get_node("ReadyPlayer").show()
 	elif Input.is_action_just_pressed(down_input):

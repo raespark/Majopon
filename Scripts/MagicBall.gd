@@ -7,6 +7,7 @@ func die():
 	get_parent().add_child(magic_death)
 	magic_death.set_position(get_global_position())
 	magic_death.get_node("Particles").set_one_shot(true)
+	magic_death.get_node("Explode").play()
 	queue_free()
 
 func _ready():
@@ -22,3 +23,5 @@ func _physics_process(delta):
 			body.die()
 			die()
 			return
+		elif body_groups.find("Wall") != -1 or body_groups.find("Ball") != -1:
+			$Bounce.play()

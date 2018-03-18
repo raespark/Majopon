@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/magicBounce.wav-b14f3a153c5edf5806f9df9c5fead5d2.sample"
+
+[deps]
+
+source_file="res://Sounds/magicBounce.wav"
+source_md5="90cb3d664adf75311ab672e4a49fcc13"
+
+dest_files=[ "res://.import/magicBounce.wav-b14f3a153c5edf5806f9df9c5fead5d2.sample" ]
+dest_md5="4de186212249c6850b09f49a9f711c70"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

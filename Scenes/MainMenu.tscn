@@ -1,17 +1,20 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Sprites/menuBackground.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/title.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/menuBackground.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/title.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/WitchSprite.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/magicHappy.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 100
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=2]
@@ -10038,7 +10041,7 @@ tracks/29/keys = {
 "values": [ 0.5284 ]
 }
 
-[node name="MainMenu" type="Container" index="0"]
+[node name="MainMenu" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -10052,6 +10055,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+script = ExtResource( 1 )
 _sections_unfolded = [ "Margin", "Material", "Rect", "Size Flags", "Theme" ]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
@@ -10068,7 +10072,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 stretch_mode = 0
 
 [node name="TextureRect2" type="TextureRect" parent="." index="1"]
@@ -10088,7 +10092,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -10119,7 +10123,7 @@ group = null
 text = "One Player"
 flat = true
 align = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Margin", "Theme", "custom_fonts" ]
 defualt_button = false
 button_function = null
@@ -10129,12 +10133,12 @@ button_function = null
 editor/display_folded = true
 visible = false
 
-[node name="WitchSprite1" parent="Button/Witches" index="0" instance=ExtResource( 5 )]
+[node name="WitchSprite1" parent="Button/Witches" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( -27.2982, 81.6211 )
 scale = Vector2( 0.1875, 0.1875 )
 
-[node name="WitchSprite2" parent="Button/Witches" index="1" instance=ExtResource( 5 )]
+[node name="WitchSprite2" parent="Button/Witches" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 385.844, 91.5486 )
 rotation = -3.14159
@@ -10167,7 +10171,7 @@ group = null
 text = "Two Player"
 flat = true
 align = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Theme", "custom_fonts" ]
 defualt_button = false
 button_function = 1
@@ -10177,7 +10181,7 @@ button_function = 1
 editor/display_folded = true
 visible = false
 
-[node name="WitchSprite3" parent="Button2/Witches" index="0" instance=ExtResource( 5 )]
+[node name="WitchSprite3" parent="Button2/Witches" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( -27.6323, 89.8867 )
 scale = Vector2( 0.1875, 0.1875 )
@@ -10226,7 +10230,7 @@ anims/Down = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 anims/Up = SubResource( 6 )
 
-[node name="WitchSprite4" parent="Button2/Witches" index="1" instance=ExtResource( 5 )]
+[node name="WitchSprite4" parent="Button2/Witches" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 411.185, 95.4232 )
 rotation = -3.14159
@@ -10303,7 +10307,7 @@ group = null
 text = "Quit"
 flat = true
 align = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Theme", "custom_fonts" ]
 defualt_button = null
 button_function = 3
@@ -10312,7 +10316,7 @@ button_function = 3
 
 visible = false
 
-[node name="WitchSprite5" parent="Button3/Witches" index="0" instance=ExtResource( 5 )]
+[node name="WitchSprite5" parent="Button3/Witches" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( -20.3801, 82.0085 )
 scale = Vector2( 0.1875, 0.1875 )
@@ -10365,7 +10369,7 @@ anims/Down = SubResource( 14 )
 anims/Idle = SubResource( 15 )
 anims/Up = SubResource( 16 )
 
-[node name="WitchSprite6" parent="Button3/Witches" index="1" instance=ExtResource( 5 )]
+[node name="WitchSprite6" parent="Button3/Witches" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 202.415, 79.6919 )
 rotation = 3.14159
@@ -10419,6 +10423,22 @@ anims/Base = SubResource( 18 )
 anims/Down = SubResource( 19 )
 anims/Idle = SubResource( 20 )
 anims/Up = SubResource( 21 )
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = -20.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Select" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
 [editable path="Button2/Witches/WitchSprite3"]

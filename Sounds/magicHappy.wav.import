@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/magicHappy.wav-d44a2e8a7c93d3b5e6421f224954db9f.sample"
+
+[deps]
+
+source_file="res://Sounds/magicHappy.wav"
+source_md5="282cc98996555b3ec19cc9c8e47d7c91"
+
+dest_files=[ "res://.import/magicHappy.wav-d44a2e8a7c93d3b5e6421f224954db9f.sample" ]
+dest_md5="ab396ce3f05c993cc1e664465a55eb64"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

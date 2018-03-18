@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/MainLevel.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/backgroundUI.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sprites/player1Wins.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/player2Wins.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/ScoreArea.gd" type="Script" id=16]
+[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -57,7 +58,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 7.86177, 9.73529 )
 
-[node name="Base" type="Node2D" index="0"]
+[node name="Base" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -74,7 +75,6 @@ __meta__ = {
 
 [node name="Walls" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( -10, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls" index="0" groups=[
@@ -498,17 +498,27 @@ position = Vector2( -0.611796, 0.938416 )
 scale = Vector2( 3.36939, 3.19062 )
 shape = SubResource( 6 )
 
-[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="UI/Win" method="win"]
+[node name="Music" type="AudioStreamPlayer2D" parent="." index="8"]
+
+stream = ExtResource( 17 )
+volume_db = -10.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer2" method="on_win"]
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="ScoreAreaPlayer1" method="on_win"]
 
-[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="UI/Win" method="win"]
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag/Player1Score" to="UI/Win" method="win"]
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer2" method="on_win"]
 
 [connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="ScoreAreaPlayer1" method="on_win"]
+
+[connection signal="win" from="UI/ScoreBanners/scoreBannersFlag2/Player2Score" to="UI/Win" method="win"]
 
 [connection signal="score_up" from="ScoreAreaPlayer2" to="UI/ScoreBanners/scoreBannersFlag2/Player2Score" method="score_change"]
 

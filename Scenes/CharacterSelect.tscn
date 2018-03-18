@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/CharacterSelect.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/characterSelect.png" type="Texture" id=2]
@@ -6,18 +6,21 @@
 [ext_resource path="res://Scripts/CharSelectArrows.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/arrow.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/ready.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scripts/BackButton.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/magicBounce.wav" type="AudioStream" id=7]
+[ext_resource path="res://Fonts/DK Udon Soup.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scripts/BackButton.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/magicMusic.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/magicHappy.wav" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 100
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -121,6 +124,16 @@ size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
 
+[node name="Nav" type="AudioStreamPlayer2D" parent="Container/Player1Arrows" index="3"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [node name="Player2Arrows" type="Node2D" parent="Container" index="1"]
 
 position = Vector2( 720, 0 )
@@ -187,6 +200,17 @@ size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
 
+[node name="Nav" type="AudioStreamPlayer2D" parent="Container/Player2Arrows" index="3"]
+
+position = Vector2( -720, 0 )
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [node name="BackButton" type="Button" parent="Container" index="2"]
 
 editor/display_folded = true
@@ -214,7 +238,7 @@ group = null
 text = "Back"
 flat = false
 align = 2
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="ArrowLeft2" type="TextureRect" parent="Container/BackButton" index="0"]
@@ -244,6 +268,26 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 10 )
+volume_db = -10.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Ready" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="cancel_ready" from="Container/Player1Arrows" to="." method="player_cancel"]
 
